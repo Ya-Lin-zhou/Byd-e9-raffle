@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BYD Dream Car Raffle 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #b30000, #ff3333);
+      color: white;
+      padding: 30px 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    header p {
+      margin-top: 6px;
+      font-size: 16px;
+    }
+    .content {
+      padding: 20px;
+    }
+    .prize img {
+      width: 90%;
+      max-width: 350px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .details {
+      margin: 20px 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .countdown, .tickets-left {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #b30000;
+    }
+    .button {
+      background-color: #e63946;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background-color: #b71c1c;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #777;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BYD Dream Car Raffle 2025</h1>
+    <p>Win a brand new BYD E9 EV!</p>
+  </header>
+
+  <div class="content">
+    <div class="prize">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/BYD_Seal_2023.jpg/800px-BYD_Seal_2023.jpg" alt="BYD E9 EV">
+    </div>
+
+    <div class="details">
+      <p><strong>Tickets:</strong> $50 each</p>
+      <p><strong>Raffle ends:</strong> December 31st, 2025</p>
+      <div class="countdown" id="countdown">Loading countdown...</div>
+      <div class="tickets-left" id="tickets">Tickets Remaining: 1,250</div>
+      <p>Don’t miss your chance to own the sleek and eco-friendly BYD E9 EV!  
+      Buy your ticket today and join thousands of others in this exciting draw.</p>
+    </div>
+
+    <a href="https://t.me/BYD_InvestTeam" class="button">Enter Now</a>
+  </div>
+
+  <footer>
+    <p>© 2025 BYD Dream Car Raffle. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const countdown = document.getElementById("countdown");
+    const endDate = new Date("December 31, 2025 23:59:59").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+      if (distance <= 0) {
+        countdown.innerHTML = "🎉 Raffle Closed!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `⏳ Time Left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // Ticket Counter (you can manually adjust the number here)
+    let ticketsLeft = 1250;
+    const ticketsDisplay = document.getElementById("tickets");
+    setInterval(() => {
+      // This just animates fake sales for demo — you can remove or adjust this
+      if (ticketsLeft > 0 && Math.random() < 0.01) {
+        ticketsLeft--;
+        ticketsDisplay.textContent = "Tickets Remaining: " + ticketsLeft.toLocaleString();
+      }
+    }, 2000);
+  </script>
+</body>
+</html>
